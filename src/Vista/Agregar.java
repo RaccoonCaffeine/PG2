@@ -23,6 +23,7 @@ public class Agregar extends javax.swing.JFrame {
 
     public Agregar() {
         initComponents();
+        this.setTitle("Aclaraciones");
         re.RellenarCombo("PRODUCTO", "NOMBRE_PRODUCTO", cbProducto);
         re.RellenarCombo("MOTIVO", "DESCRIPCION_MOTIVO", cbMotivo);
         re.NroOrden(txtNroIngreso);
@@ -129,6 +130,11 @@ public class Agregar extends javax.swing.JFrame {
         });
 
         btnCancelar.setText("Cancelar");
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("(*)");
 
@@ -246,6 +252,9 @@ public class Agregar extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
+        getAccessibleContext().setAccessibleName("Aclaraciones");
+        getAccessibleContext().setAccessibleDescription("");
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -266,6 +275,7 @@ public class Agregar extends javax.swing.JFrame {
             String razon = txtAreaRazon.getText().trim();
             int producto = cbProducto.getSelectedIndex();
             int motivo = cbMotivo.getSelectedIndex();
+            int nro = Integer.parseInt(txtNroIngreso.getText());
             int tipoDeuda;
             if (rbDirecta.isSelected()) {
                 tipoDeuda = 1;
@@ -273,7 +283,7 @@ public class Agregar extends javax.swing.JFrame {
                 tipoDeuda = 2;
             }
             try {
-                AgregarAclara objAgre = new AgregarAclara(rut, nombre, banco, razon, producto, motivo, tipoDeuda);
+                AgregarAclara objAgre = new AgregarAclara(rut, nombre, banco, razon, producto, motivo, tipoDeuda, nro);
                 String mensaje = agreDao.insertarDatos(objAgre);
                 JOptionPane.showMessageDialog(null, mensaje);
                 this.limpiar();
@@ -292,6 +302,11 @@ public class Agregar extends javax.swing.JFrame {
         this.limpiar();
 
     }//GEN-LAST:event_btnLimpiarActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_btnCancelarActionPerformed
 
     private void limpiar() {
         txtNombre.setText("");

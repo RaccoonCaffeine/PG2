@@ -9,13 +9,14 @@ package Modelo;
  * @author RaccoonCaffeine
  */
 public class AgregarAclara {
-    private String rut,nombre,banco,razon;
-    private int producto,motivo,tipoDeuda;
+
+    private String rut, nombre, banco, razon;
+    private int producto, motivo, tipoDeuda, nro;
 
     public AgregarAclara() {
     }
 
-    public AgregarAclara(String rut, String nombre, String banco, String razon, int producto, int motivo, int tipoDeuda) {
+    public AgregarAclara(String rut, String nombre, String banco, String razon, int producto, int motivo, int tipoDeuda, int nro) {
         this.rut = rut;
         this.nombre = nombre;
         this.banco = banco;
@@ -23,6 +24,7 @@ public class AgregarAclara {
         this.producto = producto;
         this.motivo = motivo;
         this.tipoDeuda = tipoDeuda;
+        this.nro = nro;
     }
 
     public String getRut() {
@@ -81,11 +83,17 @@ public class AgregarAclara {
         this.tipoDeuda = tipoDeuda;
     }
 
+    public int getNro() {
+        return nro;
+    }
+
+    public void setNro(int nro) {
+        this.nro = nro;
+    }
+
     @Override
     public String toString() {
-        return "Agregar{" + "rut=" + rut + ", nombre=" + nombre + ", banco=" + banco + ", razon=" + razon + ", producto=" + producto + ", motivo=" + motivo + ", tipoDeuda=" + tipoDeuda + '}';
+        return "AgregarAclara{" + "rut=" + rut + ", nombre=" + nombre + ", banco=" + banco + ", razon=" + razon + ", producto=" + producto + ", motivo=" + motivo + ", tipoDeuda=" + tipoDeuda + ", nro=" + nro + '}';
     }
-    
-    
 
 }

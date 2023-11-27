@@ -15,6 +15,7 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        this.setTitle("Aclaraciones");
     }
 
     /**
@@ -52,6 +53,11 @@ public class Main extends javax.swing.JFrame {
         jmAcciones.add(jmiAgregar);
 
         jmiListar.setText("Listar");
+        jmiListar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiListarActionPerformed(evt);
+            }
+        });
         jmAcciones.add(jmiListar);
 
         jmiSalir.setText("Salir");
@@ -87,6 +93,12 @@ public class Main extends javax.swing.JFrame {
     private void jmAccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAccionesActionPerformed
         // TODO add your handling code here
     }//GEN-LAST:event_jmAccionesActionPerformed
+
+    private void jmiListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiListarActionPerformed
+        // TODO add your handling code here:
+        Listar list1 = new Listar();
+        list1.setVisible(true);
+    }//GEN-LAST:event_jmiListarActionPerformed
 
     /**
      * @param args the command line arguments
