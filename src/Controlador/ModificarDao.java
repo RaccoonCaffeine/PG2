@@ -73,7 +73,7 @@ public class ModificarDao {
             pst.setInt(6, objAgre.getTipoDeuda());
             pst.setString(7, objAgre.getRazon());
             pst.setInt(8, objAgre.getNro());
-            int resultado = pst.executeUpdate(); // ejecución de la sentencia
+            int resultado = pst.executeUpdate();
             mensaje = "Se agregaron " + resultado + " registros";
         } catch (SQLException ex) {
             mensaje = "Error al insertar los datos el tabla de reparaciones" + ex.getMessage();

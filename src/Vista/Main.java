@@ -61,6 +61,11 @@ public class Main extends javax.swing.JFrame {
         jmAcciones.add(jmiListar);
 
         jmiSalir.setText("Salir");
+        jmiSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmiSalirActionPerformed(evt);
+            }
+        });
         jmAcciones.add(jmiSalir);
 
         jMenuBar1.add(jmAcciones);
@@ -99,6 +104,11 @@ public class Main extends javax.swing.JFrame {
         Listar list1 = new Listar();
         list1.setVisible(true);
     }//GEN-LAST:event_jmiListarActionPerformed
+
+    private void jmiSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_jmiSalirActionPerformed
 
     /**
      * @param args the command line arguments

@@ -10,6 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -59,8 +60,8 @@ public class ListarDao {
         ArrayList<ListarModel> listaRepa = new ArrayList();
         getCon().ConnectarBD();
         PreparedStatement pst = getCon().getCon().prepareStatement("SELECT AC.NRO_ACLARACION,AC.NOMBRE_PERSONA,AC.BANCO,PR.NOMBRE_PRODUCTO FROM ACLARACION AS AC JOIN PRODUCTO AS PR ON AC.ID_PRODUCTO = PR.ID_PRODUCTO WHERE RUT_PERSONA = ?");
-        ResultSet rs = pst.executeQuery();  // ejecuta sentencia
         pst.setString(1, rut);
+        ResultSet rs = pst.executeQuery();  // ejecuta sentencia     
         while (rs.next()) {
             ListarModel obRep = new ListarModel();
             obRep.setNro(rs.getInt(1));
@@ -72,5 +73,19 @@ public class ListarDao {
         }
         
         return listaRepa;
+    }
+    
+    public void eliminarDato(int nro){
+        try{
+        getCon().ConnectarBD();
+        PreparedStatement pst = getCon().getCon().prepareStatement("DELETE FROM ACLARACION WHERE NRO_ACLARACION = ?");
+        pst.setInt(1, nro);
+        int rst = pst.executeUpdate();
+        JOptionPane.showMessageDialog(null, "Se ha eliminado" + rst + " dato");
+        }catch(Exception ex){
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }finally{
+            con.DesconectarBD();
+        }
     }
 }

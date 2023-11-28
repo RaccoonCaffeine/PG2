@@ -144,6 +144,24 @@ public class Listar extends javax.swing.JFrame {
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
         // TODO add your handling code here:
+        if (jtLista.getSelectedRow() >= 0) {
+            try {
+                DefaultTableModel m = (DefaultTableModel) jtLista.getModel();
+                Object valor = m.getValueAt(jtLista.getSelectedRow(), 0);
+                int nro = Integer.parseInt(valor.toString());
+                int res = JOptionPane.showConfirmDialog(null, "Estas seguro que deseas eliminar?", "Confirmar Eliminar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+                if(res == 0){
+                listDao.eliminarDato(nro);
+                }else{
+                    JOptionPane.showMessageDialog(null, "No se han eliminado los datos!");
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un campo para eliminar");
+        }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -152,7 +170,7 @@ public class Listar extends javax.swing.JFrame {
         tabla.getDataVector().removeAllElements();
         tabla.fireTableDataChanged();
         String rut = txtRutBus.getText().trim();
-        if (rut.length() > 0) {
+        if (txtRutBus.getText().trim().length() > 0) {
             try {
                 ArrayList<ListarModel> listaObj = listDao.obtenerReparacion(rut);
                 for (ListarModel obj : listaObj) {
@@ -196,8 +214,8 @@ public class Listar extends javax.swing.JFrame {
 
             try {
                 DefaultTableModel m = (DefaultTableModel) jtLista.getModel();
-                Object valorCelda = m.getValueAt(jtLista.getSelectedRow(), 0);
-                String nro = valorCelda.toString();
+                Object valor = m.getValueAt(jtLista.getSelectedRow(), 0);
+                String nro = valor.toString();
                 Modificar mod = new Modificar();
                 mod.setNro(nro);
                 mod.setVisible(true);
