@@ -82,6 +82,11 @@ public class Listar extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jtLista);
 
         btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         btnEliminar.setText("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
@@ -183,6 +188,25 @@ public class Listar extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+        if (jtLista.getSelectedRow() >= 0) {
+            try {
+                DefaultTableModel m = (DefaultTableModel)jtLista.getModel();
+                String nro = String.valueOf(m.getValueAt(jtLista.getSelectedRow(), 0));               
+                Modificar mod = new Modificar();
+                mod.txtNroIngreso.setText(nro);
+                mod.setVisible(true);
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(null, ex.getMessage());
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe seleccionar un campo para modificar");
+        }
+
+    }//GEN-LAST:event_btnModificarActionPerformed
 
     /**
      * @param args the command line arguments
