@@ -150,8 +150,9 @@ public class Listar extends javax.swing.JFrame {
         // TODO add your handling code here:
         DefaultTableModel tabla = (DefaultTableModel) jtLista.getModel();
         tabla.getDataVector().removeAllElements();
-        if (txtRutBus.getText().trim().length() > 0) {
-            String rut = txtRutBus.getText().trim();
+        tabla.fireTableDataChanged();
+        String rut = txtRutBus.getText().trim();
+        if (rut.length() > 0) {
             try {
                 ArrayList<ListarModel> listaObj = listDao.obtenerReparacion(rut);
                 for (ListarModel obj : listaObj) {
@@ -192,11 +193,13 @@ public class Listar extends javax.swing.JFrame {
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
         if (jtLista.getSelectedRow() >= 0) {
+
             try {
-                DefaultTableModel m = (DefaultTableModel)jtLista.getModel();
-                String nro = String.valueOf(m.getValueAt(jtLista.getSelectedRow(), 0));               
+                DefaultTableModel m = (DefaultTableModel) jtLista.getModel();
+                Object valorCelda = m.getValueAt(jtLista.getSelectedRow(), 0);
+                String nro = valorCelda.toString();
                 Modificar mod = new Modificar();
-                mod.txtNroIngreso.setText(nro);
+                mod.setNro(nro);
                 mod.setVisible(true);
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
@@ -205,7 +208,6 @@ public class Listar extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un campo para modificar");
         }
-
     }//GEN-LAST:event_btnModificarActionPerformed
 
     /**
