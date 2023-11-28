@@ -45,7 +45,7 @@ public class Listar extends javax.swing.JFrame {
         btnModificar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("Ingresar Rut:");
 
@@ -152,6 +152,7 @@ public class Listar extends javax.swing.JFrame {
                 int res = JOptionPane.showConfirmDialog(null, "Estas seguro que deseas eliminar?", "Confirmar Eliminar", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
                 if(res == 0){
                 listDao.eliminarDato(nro);
+                this.buscar();
                 }else{
                     JOptionPane.showMessageDialog(null, "No se han eliminado los datos!");
                 }
@@ -164,8 +165,7 @@ public class Listar extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        // TODO add your handling code here:
+    public void buscar(){
         DefaultTableModel tabla = (DefaultTableModel) jtLista.getModel();
         tabla.getDataVector().removeAllElements();
         tabla.fireTableDataChanged();
@@ -201,6 +201,10 @@ public class Listar extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
             }
         }
+    }
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        this.buscar();
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
