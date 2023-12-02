@@ -132,6 +132,7 @@ public class Modificar extends javax.swing.JFrame {
 
         tipoDeudaGroup.add(rbDirecta);
         rbDirecta.setText("Directa");
+        rbDirecta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         rbDirecta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 rbDirectaActionPerformed(evt);

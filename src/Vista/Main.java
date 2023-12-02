@@ -28,7 +28,7 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        jmAcciones = new javax.swing.JMenu();
+        jmAcciones1 = new javax.swing.JMenu();
         jmiAgregar = new javax.swing.JMenuItem();
         jmiListar = new javax.swing.JMenuItem();
         jmiSalir = new javax.swing.JMenuItem();
@@ -37,10 +37,10 @@ public class Main extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aclaraciones");
 
-        jmAcciones.setText("Accciones");
-        jmAcciones.addActionListener(new java.awt.event.ActionListener() {
+        jmAcciones1.setText("Accciones");
+        jmAcciones1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmAccionesActionPerformed(evt);
+                jmAcciones1ActionPerformed(evt);
             }
         });
 
@@ -50,7 +50,7 @@ public class Main extends javax.swing.JFrame {
                 jmiAgregarActionPerformed(evt);
             }
         });
-        jmAcciones.add(jmiAgregar);
+        jmAcciones1.add(jmiAgregar);
 
         jmiListar.setText("Listar");
         jmiListar.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +58,7 @@ public class Main extends javax.swing.JFrame {
                 jmiListarActionPerformed(evt);
             }
         });
-        jmAcciones.add(jmiListar);
+        jmAcciones1.add(jmiListar);
 
         jmiSalir.setText("Salir");
         jmiSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -66,9 +66,9 @@ public class Main extends javax.swing.JFrame {
                 jmiSalirActionPerformed(evt);
             }
         });
-        jmAcciones.add(jmiSalir);
+        jmAcciones1.add(jmiSalir);
 
-        jMenuBar1.add(jmAcciones);
+        jMenuBar1.add(jmAcciones1);
 
         jMenu2.setText("Ayuda");
         jMenuBar1.add(jMenu2);
@@ -95,9 +95,9 @@ public class Main extends javax.swing.JFrame {
         agre1.setVisible(true);
     }//GEN-LAST:event_jmiAgregarActionPerformed
 
-    private void jmAccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAccionesActionPerformed
+    private void jmAcciones1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAcciones1ActionPerformed
         // TODO add your handling code here
-    }//GEN-LAST:event_jmAccionesActionPerformed
+    }//GEN-LAST:event_jmAcciones1ActionPerformed
 
     private void jmiListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiListarActionPerformed
         // TODO add your handling code here:
@@ -121,7 +121,7 @@ public class Main extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows Classic".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -148,7 +148,7 @@ public class Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu jmAcciones;
+    private javax.swing.JMenu jmAcciones1;
     private javax.swing.JMenuItem jmiAgregar;
     private javax.swing.JMenuItem jmiListar;
     private javax.swing.JMenuItem jmiSalir;
