@@ -4,6 +4,14 @@
  */
 package Vista;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.plaf.basic.BasicLookAndFeel;
+import javax.swing.plaf.metal.MetalLookAndFeel;
+import javax.swing.plaf.nimbus.NimbusLookAndFeel;
+
 /**
  *
  * @author RaccoonCaffeine
@@ -27,8 +35,12 @@ public class Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jBagregar = new javax.swing.JButton();
+        jBayuda = new javax.swing.JButton();
+        jBsalir = new javax.swing.JButton();
+        jBlistar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
-        jmAcciones1 = new javax.swing.JMenu();
+        jmAcciones = new javax.swing.JMenu();
         jmiAgregar = new javax.swing.JMenuItem();
         jmiListar = new javax.swing.JMenuItem();
         jmiSalir = new javax.swing.JMenuItem();
@@ -36,11 +48,50 @@ public class Main extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aclaraciones");
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setLocationByPlatform(true);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
-        jmAcciones1.setText("Accciones");
-        jmAcciones1.addActionListener(new java.awt.event.ActionListener() {
+        jBagregar.setBackground(new java.awt.Color(204, 204, 204));
+        jBagregar.setText("Agregar");
+        jBagregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jmAcciones1ActionPerformed(evt);
+                jBagregarActionPerformed(evt);
+            }
+        });
+
+        jBayuda.setBackground(new java.awt.Color(204, 204, 204));
+        jBayuda.setText("Ayuda");
+        jBayuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBayudaActionPerformed(evt);
+            }
+        });
+
+        jBsalir.setBackground(new java.awt.Color(204, 204, 204));
+        jBsalir.setText("Salir");
+        jBsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBsalirActionPerformed(evt);
+            }
+        });
+
+        jBlistar.setBackground(new java.awt.Color(204, 204, 204));
+        jBlistar.setText("Listar");
+        jBlistar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBlistarActionPerformed(evt);
+            }
+        });
+
+        jmAcciones.setText("Accciones");
+        jmAcciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jmAccionesActionPerformed(evt);
             }
         });
 
@@ -50,7 +101,7 @@ public class Main extends javax.swing.JFrame {
                 jmiAgregarActionPerformed(evt);
             }
         });
-        jmAcciones1.add(jmiAgregar);
+        jmAcciones.add(jmiAgregar);
 
         jmiListar.setText("Listar");
         jmiListar.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +109,7 @@ public class Main extends javax.swing.JFrame {
                 jmiListarActionPerformed(evt);
             }
         });
-        jmAcciones1.add(jmiListar);
+        jmAcciones.add(jmiListar);
 
         jmiSalir.setText("Salir");
         jmiSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -66,9 +117,9 @@ public class Main extends javax.swing.JFrame {
                 jmiSalirActionPerformed(evt);
             }
         });
-        jmAcciones1.add(jmiSalir);
+        jmAcciones.add(jmiSalir);
 
-        jMenuBar1.add(jmAcciones1);
+        jMenuBar1.add(jmAcciones);
 
         jMenu2.setText("Ayuda");
         jMenuBar1.add(jMenu2);
@@ -79,14 +130,33 @@ public class Main extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 356, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(57, 57, 57)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jBagregar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBayuda, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBlistar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(63, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 341, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBagregar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBlistar, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBayuda, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
-        pack();
+        setSize(new java.awt.Dimension(372, 309));
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jmiAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiAgregarActionPerformed
@@ -95,9 +165,9 @@ public class Main extends javax.swing.JFrame {
         agre1.setVisible(true);
     }//GEN-LAST:event_jmiAgregarActionPerformed
 
-    private void jmAcciones1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAcciones1ActionPerformed
+    private void jmAccionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmAccionesActionPerformed
         // TODO add your handling code here
-    }//GEN-LAST:event_jmAcciones1ActionPerformed
+    }//GEN-LAST:event_jmAccionesActionPerformed
 
     private void jmiListarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jmiListarActionPerformed
         // TODO add your handling code here:
@@ -110,6 +180,32 @@ public class Main extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jmiSalirActionPerformed
 
+    private void jBagregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBagregarActionPerformed
+ Agregar agre1 = new Agregar();
+        agre1.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBagregarActionPerformed
+
+    private void jBlistarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBlistarActionPerformed
+  Listar list1 = new Listar();
+        list1.setVisible(true);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBlistarActionPerformed
+
+    private void jBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsalirActionPerformed
+dispose();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBsalirActionPerformed
+
+    private void jBayudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBayudaActionPerformed
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBayudaActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        // TODO add your handling code here:
+    }//GEN-LAST:event_formWindowActivated
+
     /**
      * @param args the command line arguments
      */
@@ -121,7 +217,7 @@ public class Main extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Windows Classic".equals(info.getName())) {
+                if ("Metal".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -140,15 +236,24 @@ public class Main extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                try {
+                    UIManager.setLookAndFeel(new NimbusLookAndFeel());
+                } catch (UnsupportedLookAndFeelException ex) {
+                    Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 new Main().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jBagregar;
+    private javax.swing.JButton jBayuda;
+    private javax.swing.JButton jBlistar;
+    private javax.swing.JButton jBsalir;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenu jmAcciones1;
+    private javax.swing.JMenu jmAcciones;
     private javax.swing.JMenuItem jmiAgregar;
     private javax.swing.JMenuItem jmiListar;
     private javax.swing.JMenuItem jmiSalir;
